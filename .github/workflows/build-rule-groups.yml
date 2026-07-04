@@ -31,9 +31,9 @@ jobs:
         run: |
           mkdir -p output
 
-          GROUPS=$(jq -r '.groups | keys[]' manifest/rules.json)
+          TGROUPS=$(jq -r '.groups | keys[]' manifest/rules.json)
 
-          for group in $GROUPS; do
+          for group in $TGROUPS; do
               TYPE=$(jq -r ".groups[\"$group\"].type" manifest/rules.json)
 
               TAG_LIST=$(jq -r \
