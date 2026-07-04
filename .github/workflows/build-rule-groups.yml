@@ -1,0 +1,66 @@
+name: build-rule-groups
+
+on:
+  schedule:
+    - cron: "0 16 * * *"
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v6
+
+      - name: Install tools
+        run: sudo apt-get update && sudo apt-get install -y jq
+
+      - name: Download geoview
+        run: |
+          mkdir -p tools
+          curl -L -o tools/geoview https://github.com/snowie2000/geoview/releases/latest/download/geoview-linux-amd64
+          chmod +x tools/geoview
+
+      - name: Download dat files
+        run: |
+          mkdir -p upstream
+          curl -L -o upstream/geosite.dat https://github.com/Loyalsoldier/v2ray-rules-dat/releases/latest/download/geosite.dat
+          curl -L -o upstream/geoip.dat https://github.com/Loyalsoldier/v2ray-rules-dat/releases/latest/download/geoip.dat
+
+      - name: Build groups
+        run: |
+          mkdir -p output
+
+          GROUPS=$(jq -r '.groups | keys[]' manifest/rules.json)
+
+          for group in $GROUPS; do
+              TYPE=$(jq -r ".groups[\"$group\"].type" manifest/rules.json)
+
+              TAG_LIST=$(jq -r \
+                ".groups[\"$group\"].tags | join(\",\")" \
+                manifest/rules.json)
+
+              echo "Building $group"
+              echo "Type: $TYPE"
+              echo "Tags: $TAG_LIST"
+
+              mkdir -p "output/$TYPE"
+
+              ./tools/geoview \
+                  -action convert \
+                  -type "$TYPE" \
+                  -format ruleset \
+                  -input "upstream/${TYPE}.dat" \
+                  -list "$TAG_LIST" \
+                  -output "output/$TYPE/${group}.srs"
+          done
+
+      - name: Commit changes
+        run: |
+          git config user.name "github-actions"
+          git config user.email "actions@github.com"
+
+          git add output
+          git diff --cached --quiet && exit 0
+          git commit -m "update rule-groups $(date +%F)"
+          git push

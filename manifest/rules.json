@@ -1,0 +1,42 @@
+{
+  "groups": {
+    "direct": {
+      "type": "geosite",
+      "tags": ["cn", "private", "category-games@cn", "blizzard", "apple-cn", "speedtest", "bing", "cloudflare-cn"]
+    },
+    "direct_ip": {
+      "type": "geoip",
+      "tags": ["cn", "private"]
+    },
+    "ads": {
+      "type": "geosite",
+      "tags": ["category-ads-all"]
+    },
+    "proxy": {
+      "type": "geosite",
+      "tags": ["google", "geolocation-!cn"]
+    },
+    "proxy_ip": {
+      "type": "geoip",
+      "tags": ["us", "jp", "sg", "kr"]
+    },
+    "download": {
+      "type": "geosite",
+      "tags": ["category-dev", "sourceforge", "google-play", "kernel", "microsoft"]
+    },
+    "special": {
+      "type": "geosite",
+      "tags": ["openai", "dmm"]
+    },
+    "special_ip": {
+      "type": "geoip",
+      "tags": ["jp"]
+    },
+    "acg": {
+      "type": "geosite",
+      "tags": ["tmdb", "pixiv"]
+    }
+  }
+}
+
+
