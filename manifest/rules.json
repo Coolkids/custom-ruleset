@@ -10,7 +10,7 @@
     },
     "ads": {
       "type": "geosite",
-      "tags": ["category-ads-all"]
+      "tags": ["category-ads-all",  "pinduoduo"]
     },
     "proxy": {
       "type": "geosite",
@@ -18,7 +18,7 @@
     },
     "proxy_ip": {
       "type": "geoip",
-      "tags": ["us", "jp", "sg", "kr"]
+      "tags": ["us", "sg", "kr"]
     },
     "download": {
       "type": "geosite",
