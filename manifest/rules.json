@@ -2,7 +2,7 @@
   "groups": {
     "direct": {
       "type": "geosite",
-      "tags": ["cn", "private", "category-games@cn", "blizzard", "apple-cn", "speedtest", "bing", "cloudflare-cn"]
+      "tags": ["cn", "private", "category-games@cn", "blizzard", "apple-cn", "speedtest", "bing", "cloudflare-cn", "geolocation-cn"]
     },
     "direct_ip": {
       "type": "geoip",
@@ -14,7 +14,7 @@
     },
     "proxy": {
       "type": "geosite",
-      "tags": ["google", "geolocation-!cn"]
+      "tags": ["google", "geolocation-!cn", "tld-!cn"]
     },
     "proxy_ip": {
       "type": "geoip",
