@@ -6,7 +6,7 @@
     },
     "direct_ip": {
       "type": "geoip",
-      "tags": ["cn", "private"]
+      "tags": ["cn"]
     },
     "ads": {
       "type": "geosite",
@@ -23,6 +23,10 @@
     "high_proxy": {
       "type": "geosite",
       "tags": ["google"]
+    },
+    "high_proxy_ip": {
+      "type": "geoip",
+      "tags": ["private"]
     }
   }
 }
