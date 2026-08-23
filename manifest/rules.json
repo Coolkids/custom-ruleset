@@ -2,7 +2,7 @@
   "groups": {
     "direct": {
       "type": "geosite",
-      "tags": ["cn", "private", "category-games@cn", "blizzard", "apple-cn", "speedtest", "bing", "cloudflare-cn", "geolocation-cn"]
+      "tags": ["cn", "private",  "blizzard", "bing", "cloudflare-cn", "geolocation-cn"]
     },
     "direct_ip": {
       "type": "geoip",
@@ -14,27 +14,15 @@
     },
     "proxy": {
       "type": "geosite",
-      "tags": ["google", "geolocation-!cn", "tld-!cn"]
+      "tags": ["geolocation-!cn", "tld-!cn", "thelinuxfoundation"]
     },
-    "proxy_ip": {
-      "type": "geoip",
-      "tags": ["us", "sg", "kr"]
-    },
-    "download": {
+    "high_direct": {
       "type": "geosite",
-      "tags": ["category-dev", "sourceforge", "google-play", "kernel", "microsoft"]
+      "tags": ["apple-cn", "speedtest", "category-games@cn"]
     },
-    "special": {
+    "high_proxy": {
       "type": "geosite",
-      "tags": ["category-ai-!cn", "dmm"]
-    },
-    "special_ip": {
-      "type": "geoip",
-      "tags": ["jp"]
-    },
-    "acg": {
-      "type": "geosite",
-      "tags": ["tmdb", "pixiv"]
+      "tags": ["google"]
     }
   }
 }
