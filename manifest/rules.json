@@ -24,7 +24,7 @@
       "type": "geosite",
       "tags": ["google"]
     },
-    "high_proxy_ip": {
+    "high_direct_ip": {
       "type": "geoip",
       "tags": ["private"]
     }
