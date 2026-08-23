@@ -26,7 +26,7 @@
     },
     "special": {
       "type": "geosite",
-      "tags": ["openai", "dmm"]
+      "tags": ["category-ai-!cn", "dmm"]
     },
     "special_ip": {
       "type": "geoip",
