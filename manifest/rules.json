@@ -10,7 +10,7 @@
     },
     "ads": {
       "type": "geosite",
-      "tags": ["category-ads-all",  "pinduoduo"]
+      "tags": ["category-ads-all", "pinduoduo", "douyin"]
     },
     "proxy": {
       "type": "geosite",
